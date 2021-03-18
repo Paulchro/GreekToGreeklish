@@ -25,7 +25,7 @@ namespace readwriteapp
             } while (!IsGreek(text));
             Console.WriteLine($"Your text in greeklish: {ConvertToGlish(text)}");
             Console.WriteLine();
-            Console.WriteLine("Do yoy want to export the text in a text file? Y/N\n");
+            Console.WriteLine("Do yoy want to export the text in a text file? Y/N (latin characters)\n");
             ExportQuestion(text);
           
 
@@ -74,9 +74,9 @@ namespace readwriteapp
             if (File.Exists(path))
             {
                 Console.WriteLine("This file allready exist");
-                Console.WriteLine("Do you want to override this file? Y/N");
+                Console.WriteLine("Do you want to override this file? Y/N (latin characters)");
                 string answer2 = Console.ReadLine();
-                if (answer2 == "Y")
+                if (answer2.ToLower() == "y")
                 {
                     try
                     {
@@ -100,7 +100,7 @@ namespace readwriteapp
                         Environment.Exit(0);
                     }
                 }
-                if (answer2 == "N")
+                if (answer2.ToLower() == "n")
                 {
                     try
                     {
