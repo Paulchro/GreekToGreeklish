@@ -13,7 +13,7 @@ namespace readwriteapp
         static void Main(string[] args)
         {
             string text;
-            /*@"C:\Users\paulc\Desktop\Test1.txt";*/
+            /*@"ds";*/
             Console.WriteLine("Welcome to greek to greeklish converter");
             Console.WriteLine("Type a text in greek to turn it to greeklish");
             Console.WriteLine();
@@ -69,6 +69,7 @@ namespace readwriteapp
 
         private static void FileMan(string text, string path)
         {
+            bool success = true;
             Random rnd = new Random();
             if (File.Exists(path))
             {
@@ -87,9 +88,12 @@ namespace readwriteapp
                     }
                     catch (Exception e)
                     {
+                        success = false;
                         Console.WriteLine("Exception: " + e.Message);
+                        Console.WriteLine("Change path");
+                        Validation(text);
                     }
-                    finally
+                    if(success == true)
                     {
                         Console.WriteLine("Your file is ready!");
                         Console.WriteLine("Thank you!");
@@ -110,9 +114,12 @@ namespace readwriteapp
                     }
                     catch (Exception e)
                     {
+                        success = false;
                         Console.WriteLine("Exception: " + e.Message);
+                        Console.WriteLine("Change path");
+                        Validation(text);
                     }
-                    finally
+                    if (success == true)
                     {
                         Console.WriteLine("Your file is ready!");
                         Console.WriteLine(path.Replace(".", rnd.Next(1, 100).ToString() + "."));
@@ -139,9 +146,12 @@ namespace readwriteapp
                 }
                 catch (Exception e)
                 {
+                    success = false;
                     Console.WriteLine("Exception: " + e.Message);
+                    Console.WriteLine("Change path");
+                    Validation(text);
                 }
-                finally
+                if(success == true)
                 {
                     Console.WriteLine("Your file is ready!");
                     Console.WriteLine("Thank you!");
