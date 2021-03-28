@@ -102,10 +102,11 @@ namespace readwriteapp
                 }
                 if (answer2.ToLower() == "n")
                 {
+                    var news = rnd.Next(1, 100);
                     try
                     {
                         
-                        using (StreamWriter sw = File.CreateText(path.Replace(".", rnd.Next(1, 100).ToString() + ".")))
+                        using (StreamWriter sw = File.CreateText(path.Replace(".", news.ToString() + ".")))
                         {
                             sw.WriteLine($"Original text: {text}");
                             sw.WriteLine($"Your text in greeklish: {ConvertToGlish(text)}");
@@ -122,7 +123,7 @@ namespace readwriteapp
                     if (success == true)
                     {
                         Console.WriteLine("Your file is ready!");
-                        Console.WriteLine(path.Replace(".", rnd.Next(1, 100).ToString() + "."));
+                        Console.WriteLine(path.Replace(".", news.ToString() + "."));
                         Console.WriteLine("Thank you!");
                         Environment.Exit(0);
                     }
