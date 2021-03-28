@@ -13,7 +13,6 @@ namespace readwriteapp
         static void Main(string[] args)
         {
             string text;
-            /*@"ds";*/
             Console.WriteLine("Welcome to greek to greeklish converter");
             Console.WriteLine("Type a text in greek to turn it to greeklish");
             Console.WriteLine();
@@ -37,7 +36,7 @@ namespace readwriteapp
 
             if (answer.ToLower() == "y")
             {
-                Console.WriteLine("Type path");
+                Console.WriteLine("Type path and file name (*.txt)");
 
                 Validation(text);
             }
@@ -83,6 +82,7 @@ namespace readwriteapp
                         File.WriteAllText(path, String.Empty);
                         StreamWriter sw = new StreamWriter(path, true, Encoding.UTF8);
                         sw.WriteLine($"Original text: {text}");
+                        sw.WriteLine();
                         sw.WriteLine($"Your text in greeklish: {ConvertToGlish(text)}");
                         sw.Close();
                     }
